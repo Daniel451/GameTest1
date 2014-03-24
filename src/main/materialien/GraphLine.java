@@ -2,6 +2,8 @@ package main.materialien;
 
 import java.util.LinkedList;
 
+import main.fachwerte.Zufallsbuchstabe;
+
 /**
  * Repräsentiert eine Kante zwischen zwei Knoten in einem Graph
  * 
@@ -10,18 +12,45 @@ import java.util.LinkedList;
  */
 public class GraphLine
 {
-   private GraphVertice _vertice1;
-   private GraphVertice _vertice2;
-   private LinkedList<GraphVertice> _vertices;
+   private final GraphVertex _vertex1;
+   private final GraphVertex _vertex2;
+   private final LinkedList<GraphVertex> _vertices;
    private String _label;
+   private int _cost;
 	
-	public GraphLine (GraphVertice knoten1, GraphVertice knoten2)
+	public GraphLine(GraphVertex knoten1, GraphVertex knoten2)
 	{
-		_vertice1 = knoten1;
-		_vertice2 = knoten2;
-		_vertices.add(knoten1);
-		_vertices.add(knoten2);
-		_label = "";
+		this(knoten1, knoten2, 1);
+	}
+	
+	public GraphLine(GraphVertex knoten1, GraphVertex knoten2, int cost)
+	{
+		this(knoten1, knoten2, cost,
+				Character.toString(Zufallsbuchstabe.gibGrossBuchstaben())
+				+ Character.toString(Zufallsbuchstabe.gibGrossBuchstaben())
+				+ Character.toString(Zufallsbuchstabe.gibGrossBuchstaben())
+				);
+	}
+	
+	public GraphLine(GraphVertex knoten1, GraphVertex knoten2, int cost, String label)
+	{
+		_vertex1 = knoten1;
+		_vertex2 = knoten2;
+		
+		LinkedList<GraphVertex> liste = new LinkedList<GraphVertex>();
+		liste.add(_vertex1);
+		liste.add(_vertex2);
+		
+		_vertices = liste;
+		
+		_cost = cost;
+		
+		_label = label;
+	}
+	
+	public int getCost()
+	{
+		return _cost;
 	}
 	
 	/**
@@ -43,23 +72,23 @@ public class GraphLine
 	/**
 	 * @return GraphVertice Gibt den ersten Knoten zurück
 	 */
-	public GraphVertice getVertice1()
+	public GraphVertex getVertex1()
 	{
-		return _vertice1;
+		return _vertex1;
 	}
 	
 	/**
 	 * @return GraphVertice Gibt den zweiten Knoten zurück
 	 */
-	public GraphVertice getVertice2()
+	public GraphVertex getVertex2()
 	{
-		return _vertice2;
+		return _vertex2;
 	}
 	
 	/**
 	 * @return LinkedList<GraphVertice> Gibt eine LinkedList der beiden Knoten zurück
 	 */
-	public LinkedList<GraphVertice> getVertices()
+	public LinkedList<GraphVertex> getVertexes()
 	{
 		return _vertices;
 	}
