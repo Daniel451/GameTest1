@@ -1,0 +1,8 @@
+# Ignore all files
+*
+
+# Whitelist directories, .java and .txt
+!*/
+!*.java
+!*.txt
+!.gitignore

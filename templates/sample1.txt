@@ -1,0 +1,12 @@
+(-VerticeName)
+#Vertices
+-vS
+-v02
+-v03
+-vG
+
+(-FirstVerticeName.SecondVerticeName.Costs)
+#Edges
+-vS.v02.1
+-vS.v03.2
+-v02.vG.3
