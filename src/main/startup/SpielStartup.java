@@ -13,7 +13,7 @@ public class SpielStartup
 	// Klassenvariablen
 		// Werkzeuge
 		@SuppressWarnings("unused")
-      private static Controller _controller;
+		private static Controller _controller;
 	
 	/**
 	 * Main Methode
